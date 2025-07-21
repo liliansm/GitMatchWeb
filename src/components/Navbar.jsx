@@ -11,10 +11,14 @@ import {
   ListItemText,
   Box,
   useMediaQuery,
-  useTheme
+  useTheme,
+  Button,
+  Divider,
+  Avatar
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 const Navbar = ({ isLoggedIn = false }) => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -24,7 +28,6 @@ const Navbar = ({ isLoggedIn = false }) => {
 
   const handleLogout = () => {
     setMenuOpen(false);
-    // Implemente sua lógica de logout aqui
     alert('Você saiu da sua conta!');
   };
 
@@ -33,58 +36,101 @@ const Navbar = ({ isLoggedIn = false }) => {
     navigate(route);
   };
 
-  // Itens do menu baseados no estado de login
+  // Função específica para navegar para a home
+  const goToHome = () => {
+    navigate('/home');
+  };
+
   const menuItems = isLoggedIn
     ? [
-        { label: 'Perfil', path: '/profile' },
-        { label: 'Vagas', path: '/vagas' },
-        { label: 'Notificações', path: '/notification' },
-        { label: 'Sair', action: handleLogout }
+        { label: 'Perfil', path: '/profile', icon: <AccountCircleIcon sx={{ mr: 1 }} /> },
+        { label: 'Vagas', path: '/vagas', icon: <AccountCircleIcon sx={{ mr: 1 }} /> },
+        { label: 'Notificações', path: '/notification', icon: <AccountCircleIcon sx={{ mr: 1 }} /> },
+        { label: 'Sair', action: handleLogout, icon: <AccountCircleIcon sx={{ mr: 1 }} /> }
       ]
     : [
-        { label: 'Login', path: '/login' },
-        { label: 'Cadastrar-se', path: '/register' }
+        { label: 'Login', path: '/login', icon: <AccountCircleIcon sx={{ mr: 1 }} /> },
+        { label: 'Cadastrar-se', path: '/register', icon: <AccountCircleIcon sx={{ mr: 1 }} /> }
       ];
 
   return (
     <>
-      <AppBar position="static" sx={{ backgroundColor: '#fff', color: '#1d4ed8', boxShadow: 1 }}>
-        <Toolbar sx={{ justifyContent: 'space-between' }}>
-          {/* Logo */}
-          <Typography 
-            variant="h5" 
-            component="div" 
+      <AppBar position="static" sx={{ 
+        backgroundColor: 'background.paper', 
+        color: 'primary.main', 
+        boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
+        transition: 'all 0.3s ease',
+        '&:hover': {
+          boxShadow: '0 4px 20px rgba(0,0,0,0.15)'
+        }
+      }}>
+        <Toolbar sx={{ 
+          justifyContent: 'space-between',
+          py: 1,
+          px: { xs: 2, md: 4 }
+        }}>
+          {/* Logo - Agora com onClick explícito */}
+          <Box 
             sx={{ 
-              fontWeight: 'bold',
-              cursor: 'pointer',
-              '&:hover': { opacity: 0.8 }
+              display: 'flex', 
+              alignItems: 'center',
+              cursor: 'pointer' 
             }}
-            onClick={() => navigate('/')}
+            onClick={goToHome} 
           >
-            GitMatch
-          </Typography>
+            <Typography 
+              variant="h5" 
+              component="div" 
+              sx={{ 
+                fontWeight: 'bold',
+                background: 'linear-gradient(45deg, #1d4ed8 30%, #3b82f6 90%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                transition: 'all 0.3s ease',
+                '&:hover': { 
+                  transform: 'scale(1.03)',
+                  opacity: 0.9
+                }
+              }}
+            >
+              GitMatch
+            </Typography>
+          </Box>
 
-          {/* Menu Desktop */}
           {!isMobile && (
-            <Box sx={{ display: 'flex', gap: 3 }}>
+            <Box sx={{ 
+              display: 'flex', 
+              gap: 2,
+              alignItems: 'center'
+            }}>
               {menuItems.map((item, index) => (
-                <Typography
+                <Button
                   key={index}
-                  variant="body1"
+                  variant={item.label === 'Cadastrar-se' ? 'contained' : 'text'}
+                  color="primary"
                   sx={{
-                    fontWeight: 500,
-                    cursor: 'pointer',
-                    '&:hover': { textDecoration: 'underline' }
+                    fontWeight: 600,
+                    textTransform: 'none',
+                    fontSize: '1rem',
+                    borderRadius: '8px',
+                    px: 2,
+                    transition: 'all 0.2s ease',
+                    ...(item.label !== 'Cadastrar-se' && {
+                      '&:hover': { 
+                        backgroundColor: 'rgba(29, 78, 216, 0.08)',
+                        transform: 'translateY(-1px)'
+                      }
+                    })
                   }}
                   onClick={() => item.path ? handleNavigation(item.path) : item.action?.()}
+                  // startIcon={item.icon}
                 >
                   {item.label}
-                </Typography>
+                </Button>
               ))}
             </Box>
           )}
 
-          {/* Menu Hamburguer (Mobile) */}
           {isMobile && (
             <IconButton
               size="large"
@@ -92,6 +138,12 @@ const Navbar = ({ isLoggedIn = false }) => {
               color="inherit"
               aria-label="menu"
               onClick={() => setMenuOpen(true)}
+              sx={{
+                backgroundColor: 'rgba(29, 78, 216, 0.1)',
+                '&:hover': {
+                  backgroundColor: 'rgba(29, 78, 216, 0.2)'
+                }
+              }}
             >
               <MenuIcon sx={{ fontSize: '32px' }} />
             </IconButton>
@@ -99,38 +151,19 @@ const Navbar = ({ isLoggedIn = false }) => {
         </Toolbar>
       </AppBar>
 
-      {/* Drawer Mobile */}
       <Drawer
         anchor="right"
         open={menuOpen}
         onClose={() => setMenuOpen(false)}
         sx={{
           '& .MuiDrawer-paper': {
-            width: 280
+            width: 280,
+            backgroundColor: 'background.paper',
+            backgroundImage: 'none'
           }
         }}
       >
-        <Box sx={{ p: 2 }}>
-          <IconButton onClick={() => setMenuOpen(false)} sx={{ mb: 1 }}>
-            <ArrowBackIcon sx={{ fontSize: '28px' }} />
-          </IconButton>
-
-          <List>
-            {menuItems.map((item, index) => (
-              <ListItem 
-                button 
-                key={index}
-                onClick={() => item.path ? handleNavigation(item.path) : item.action?.()}
-                sx={{ py: 1.5 }}
-              >
-                <ListItemText 
-                  primary={item.label} 
-                  primaryTypographyProps={{ fontSize: '1.1rem' }} 
-                />
-              </ListItem>
-            ))}
-          </List>
-        </Box>
+        
       </Drawer>
     </>
   );
