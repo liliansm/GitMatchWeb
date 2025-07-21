@@ -1,70 +1,95 @@
-# Getting Started with Create React App
+GitMatch - Plataforma Inteligente de Match entre Devs e Vagas 💻❤️👔
+https://img.shields.io/badge/license-MIT-blue.svg
+https://img.shields.io/badge/React-18.2.0-blue
+https://img.shields.io/badge/Vite-4.0.0-yellow
+https://img.shields.io/github/stars/seu-usuario/gitmatch-web
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+📌 Visão do Projeto
+GitMatch é uma plataforma revolucionária que transforma a maneira como desenvolvedores encontram oportunidades e empresas descobrem talentos tech. Utilizando análise inteligente de perfis do GitHub, criamos matches perfeitos baseados em habilidades reais, não apenas em currículos.
 
-## Available Scripts
+https://docs/demo.gif
 
-In the project directory, you can run:
+✨ Funcionalidades Principais
+Para Desenvolvedores 👨‍💻
+🔍 Smart Matching com vagas ideais
 
-### `npm start`
+📊 Análise técnica dos seus repositórios
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+🚀 Dashboard de progresso profissional
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+💼 Candidatura simplificada com 1 clique
 
-### `npm test`
+Para Empresas 🏢
+🎯 Recrutamento baseado em código real
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+⚡ Processo seletivo 3x mais rápido
 
-### `npm run build`
+📈 Relatórios técnicos detalhados
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+🤖 Sistema de matching automático
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+🛠 Tecnologias Utilizadas
+Frontend Web
+Framework: React 18 + Vite
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+UI: Material UI 5 + Emotion
 
-### `npm run eject`
+Roteamento: React Router 6
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Gerenciamento de Estado: Context API
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Formulários: React Hook Form + Yup
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+HTTP Client: Axios
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Infraestrutura
+CI/CD: GitHub Actions
 
-## Learn More
+Hosting: Vercel/Netlify
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Monitoramento: Sentry
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+🚀 Começando
+Pré-requisitos
+Node.js 16+
 
-### Code Splitting
+npm 8+ ou yarn
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Git
 
-### Analyzing the Bundle Size
+Instalação
+bash
+# Clone o repositório
+git clone https://github.com/seu-usuario/gitmatch-web.git
+cd gitmatch-web
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+# Instale as dependências
+npm install
 
-### Making a Progressive Web App
+# Configure as variáveis de ambiente
+cp .env.example .env
+Executando Localmente
+bash
+# Modo desenvolvimento
+npm run dev
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+# Build para produção
+npm run build
 
-### Advanced Configuration
+Faça um fork do projeto
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Crie uma branch (git checkout -b feature/nova-feature)
 
-### Deployment
+Commit suas alterações (git commit -m 'Adiciona nova feature')
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Push para a branch (git push origin feature/nova-feature)
 
-### `npm run build` fails to minify
+Abra um Pull Request
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+📄 Licença
+Distribuído sob a licença MIT. Veja LICENSE para mais informações.
+
+✉️ Contato
+Equipe GitMatch - contato@gitmatch.com
+
+Feito com ❤️ pela comunidade GitMatch - Conectando talentos a oportunidades perfeitas! 🚀
