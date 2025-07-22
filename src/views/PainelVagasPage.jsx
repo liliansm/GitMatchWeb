@@ -14,7 +14,7 @@ import {
 } from '@mui/material';
 import { WorkOutline, ArrowBack } from '@mui/icons-material';
 import Navbar from '../components/Navbar';
-import api from '../service/api';
+import { api } from '../service/api';
 
 export default function PainelVagas() {
   const [vagas, setVagas] = useState([]);
